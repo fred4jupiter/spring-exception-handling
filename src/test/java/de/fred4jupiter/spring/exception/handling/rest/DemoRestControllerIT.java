@@ -10,6 +10,7 @@ import org.springframework.boot.test.context.SpringBootTest;
 import org.springframework.boot.web.server.LocalServerPort;
 import org.springframework.test.context.junit4.SpringRunner;
 import org.springframework.web.client.HttpClientErrorException;
+import org.springframework.web.client.HttpServerErrorException;
 import org.springframework.web.client.RestOperations;
 
 import static org.junit.Assert.*;
@@ -31,7 +32,7 @@ public class DemoRestControllerIT {
         try {
             restOperations.getForEntity("http://localhost:" + port + "/greeting/Michael", String.class);
             fail("HttpClientErrorException should be thrown");
-        } catch (HttpClientErrorException e) {
+        } catch (HttpServerErrorException e) {
             assertNotNull(e);
             String responseBodyAsString = e.getResponseBodyAsString();
             LOG.info("responseBodyAsString: {}", responseBodyAsString);

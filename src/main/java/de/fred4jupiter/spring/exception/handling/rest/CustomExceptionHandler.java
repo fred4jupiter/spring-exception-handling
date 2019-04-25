@@ -6,15 +6,14 @@ import org.springframework.web.bind.annotation.ControllerAdvice;
 import org.springframework.web.bind.annotation.ExceptionHandler;
 import org.springframework.web.servlet.mvc.method.annotation.ResponseEntityExceptionHandler;
 
+/**
+ * Custom error handler that puts the error message into the body.
+ */
 @ControllerAdvice
 public class CustomExceptionHandler extends ResponseEntityExceptionHandler {
 
     @ExceptionHandler(value = {Exception.class})
     protected ResponseEntity<Object> handleConflict(Exception ex) {
-        return buildResponseEntity(HttpStatus.CONFLICT, ex.getMessage());
-    }
-
-    private ResponseEntity<Object> buildResponseEntity(HttpStatus httpStatus, String errorMessage) {
-        return ResponseEntity.status(httpStatus).body(errorMessage);
+        return ResponseEntity.status(HttpStatus.INTERNAL_SERVER_ERROR).body(ex.getMessage());
     }
 }

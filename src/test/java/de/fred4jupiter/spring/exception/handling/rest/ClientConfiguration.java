@@ -1,6 +1,5 @@
 package de.fred4jupiter.spring.exception.handling.rest;
 
-import feign.Contract;
 import feign.Feign;
 import org.springframework.cloud.openfeign.FeignClientsConfiguration;
 import org.springframework.cloud.openfeign.support.SpringMvcContract;
@@ -16,11 +15,6 @@ public class ClientConfiguration {
     public CustomErrorDecoder customErrorDecoder() {
         return new CustomErrorDecoder();
     }
-
-//    @Bean
-//    public Contract feignContract() {
-//        return new feign.Contract.Default();
-//    }
 
     @Bean
     public DemoRestClient demoRestClient() {
