@@ -9,12 +9,12 @@ import org.springframework.web.client.RestOperations;
 @SpringBootApplication
 public class Application {
 
-	public static void main(String[] args) {
-		SpringApplication.run(Application.class, args);
-	}
+    public static void main(String[] args) {
+        SpringApplication.run(Application.class, args);
+    }
 
-	@Bean
-	public RestOperations restOperations(RestTemplateBuilder restTemplateBuilder) {
-		return restTemplateBuilder.build();
-	}
+    @Bean
+    public RestOperations restOperations(RestTemplateBuilder restTemplateBuilder) {
+        return restTemplateBuilder.build();
+    }
 }

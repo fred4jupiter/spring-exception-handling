@@ -1,5 +1,6 @@
 package de.fred4jupiter.spring.exception.handling.rest;
 
+import de.fred4jupiter.spring.exception.handling.Application;
 import org.junit.Test;
 import org.junit.runner.RunWith;
 import org.slf4j.Logger;
@@ -14,7 +15,7 @@ import org.springframework.web.client.RestOperations;
 import static org.junit.Assert.*;
 
 @RunWith(SpringRunner.class)
-@SpringBootTest(webEnvironment = SpringBootTest.WebEnvironment.RANDOM_PORT)
+@SpringBootTest(classes = Application.class, webEnvironment = SpringBootTest.WebEnvironment.RANDOM_PORT)
 public class DemoRestControllerIT {
 
     private static final Logger LOG = LoggerFactory.getLogger(DemoRestControllerIT.class);
