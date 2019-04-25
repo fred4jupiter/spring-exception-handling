@@ -30,7 +30,9 @@ public class DemoRestControllerIT {
     @Test
     public void callMethodAndExpectCorrectErrorMessage() {
         try {
-            restOperations.getForEntity("http://localhost:" + port + "/greeting/Michael", String.class);
+            String url = "http://localhost:" + port + "/greeting/Michael";
+            LOG.debug("Calling url: {}", url);
+            restOperations.getForEntity(url, String.class);
             fail("HttpClientErrorException should be thrown");
         } catch (HttpServerErrorException e) {
             assertNotNull(e);
